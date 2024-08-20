@@ -12,8 +12,21 @@ provider "hashicups" {
   password = "test123"
 }
 
-data "hashicups_coffees" "edu" {}
+resource "hashicups_order" "edu" {
+  items = [{
+    coffee = {
+      id = 3
+    }
+    quantity = 2
+    }, {
+    coffee = {
+      id = 1
+    }
+    quantity = 2
+    }
+  ]
+}
 
-output "coffees" {
-  value = data.hashicups_coffees.edu.coffees
+output "edu_order" {
+  value = hashicups_order.edu
 }

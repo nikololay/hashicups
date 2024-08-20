@@ -197,5 +197,7 @@ func (h *hashicupsProvider) DataSources(context.Context) []func() datasource.Dat
 
 // Resources implements provider.Provider.
 func (h *hashicupsProvider) Resources(context.Context) []func() resource.Resource {
-	return nil
+	return []func() resource.Resource{
+		NewOrderResource,
+	}
 }
