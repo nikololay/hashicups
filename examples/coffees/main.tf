@@ -13,3 +13,7 @@ provider "hashicups" {
 }
 
 data "hashicups_coffees" "edu" {}
+
+output "coffees" {
+  value = data.hashicups_coffees.edu.coffees
+}
